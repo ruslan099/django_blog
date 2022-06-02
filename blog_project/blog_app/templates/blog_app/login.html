@@ -1,0 +1,27 @@
+{% extends 'blog_app/base.html' %}
+
+{% block body %}
+<div id="wrapper">
+    <div class="aside"></div>
+    <div class="main_avtoriza">
+        <div class="pole_avtoriza" id="auth-block"><br>
+            <h1 class="name_avtoriza">Авторизация</h1><br>
+            <form method="post">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <div class="flash-error">{{ form.non_field_errors }}</div>
+                {% endif %}
+
+                {% for f in form %}
+                    <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+                    {% if f.errors %}
+                        <div class="flash-error">{{ f.errors }}</div>
+                    {% endif %}
+                {% endfor %}
+                <button class="form-button" type="submit">Вход</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

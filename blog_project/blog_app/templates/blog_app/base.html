@@ -1,20 +1,31 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ru">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="ie-edge">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-        <title>{% block title %}{% endblock %}</title>    
+        <link type="text/css" href="{% static 'blog_app/css/styles.css' %}" rel="stylesheet" />
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>{{title}}</title>    
     </head>
     <body>
         <div class="header">
-            <img src="https://cbcol.mskobr.ru/images/cms/data/preview/1412078414o_kbt_png_250_135_1495134489.png" alt="logo" class="logo-kbt">
+            <img src="https://cbcol.mskobr.ru/attach_files/logo/лого.png" alt="logo" class="logo-kbt">
             <ul class="main_menu_header">
                 <li class="menu_name"><a href="{% url 'main' %}">Главная</a></li>
-                <li class="menu_name"><a href="/about">Про нас</a></li>
-                <li class="menu_name"><a href="/materials">Материалы</a></li>
-                <li class="menu_name"><a href="#">Добавить статью</a></li>
-                <li class="menu_name"><a href="#">Регистрация</a> | <a href="#">Войти</a></li>
+                <li class="menu_name"><a href="{% url 'about' %}">Про нас</a></li>
+
+                {% for c in cats %}
+                    <li class="menu_name"><a href="{% url 'category' c.slug %}">{{ c.name }}</a></li>
+                {% endfor %}
+
+                <li class="menu_name"><a href="{% url 'addpost' %}">Добавить статью</a></li>
+                {% if request.user.is_authenticated %}
+			    <li class="menu_name">{{ user.username }} | <a href="{% url 'logout' %}">Выйти</a></li>
+			    {% else %}
+			    <li class="menu_name"><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a></li>
+			    {% endif %}
             </ul>
         </div>
         {% block body %}{% endblock %}

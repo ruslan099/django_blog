@@ -1,0 +1,42 @@
+{% extends 'blog_app/base.html' %}
+{% load humanize %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block body %}
+<div id="wrapper">
+    <div class="aside"></div>
+    <div class="main">
+        <h1>Добро пожаловать, {{ user.username|default:'Гость' }}!</h1><br>
+
+        <ul class="list-articles">
+            {% for p in posts %}
+                <li class="item">
+                    <div class="article-panel">
+                        <p class="first">Категория: {{ p.cat }}</p>
+                        <p class="last">Дата: {{ p.time_create|naturaltime }}</p>
+                    </div>
+                    <h2 class="item-title">{{p.title}}</h2>
+                    <div class="body-item">
+                        {% if p.photo %}
+                        <div class="item-photo">
+                            <p><img class="img-article-left thumb" src="{{ p.photo.url }}"></p>
+                        </div>
+                        {% endif %}
+                        {% autoescape on %}
+                        <div class="item-text">
+                        {{p.content|linebreaks|truncatewords:50}}
+                        </div>
+                        {% endautoescape %}
+                    </div>
+                    <div class="item-button">
+                        <a class="button-link" href="{% url 'showpost' p.slug %}">Читать пост</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

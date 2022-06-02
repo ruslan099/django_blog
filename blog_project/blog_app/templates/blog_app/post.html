@@ -1,0 +1,62 @@
+{% extends 'blog_app/base.html' %}
+{% load humanize %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block body %}
+<div id="wrapper">
+    <div class="aside"></div>
+    <div class="main">
+        <div class="container mt-5">
+            <p><h1>{{ post.title }}</h1></p>
+
+            {% if post.photo %}
+            <p><img class="img-article-left" src="{{ post.photo.url }}"></p>
+            {% endif %}
+
+            {{post.content|linebreaks}}
+
+            <br><hr class="hr-comments">
+            {% with comments.count as total_comments %}
+            <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
+            {% endwith %}
+
+            {% for comment in comments %}
+            <div class="comment">
+                <p class="info">
+                    Комментарий {{ forloop.counter }} | от {{ comment.name }} |
+                    {{ comment.created|naturaltime }}
+                </p>
+                {{ comment.body|linebreaks }}
+                <hr>
+            </div>
+            {% empty %}
+                <p>Здесь пока что нет комментариев.</p>
+            {% endfor %}
+
+
+            {% if user.is_authenticated %}
+                {% if new_comment %}
+                    <div class="flash-success">Ваш комментарий был опубликован.</div>
+                {% else %}
+                    <h2>Добавьте новый комментарий</h2>
+                    <form method="post">
+                    {% csrf_token %}
+                    {% for f in comment_form %}
+                        <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+                        {% if f.errors %}
+                            <div class="flash-error">{{ f.errors }}</div>
+                        {% endif %}
+                    {% endfor %}
+                    <p><input type="submit" value="Добавить комментарий"></p>
+                    </form>
+                {% endif %}
+            {% else %}
+                <h2>Авторизуйтесь, чтобы оставить комментарий!</h2>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

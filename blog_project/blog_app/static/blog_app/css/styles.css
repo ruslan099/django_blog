@@ -1,0 +1,774 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {height: 100%;}
+
+body {
+    background-color: #D7D3D6;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/*Работа с шапкой страницы*/
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+    color: #fafafa;
+    line-height: 50px;
+    border-bottom: 2px solid silver;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.menu_name {
+    display: inline;
+    text-align: center;
+    background: #333;
+    border-radius: 10%;
+}
+
+.main_menu_header li:not(:last-of-type) {      /*отступы между элементами списка(кроме последнего)*/
+    margin-right: 25px;
+}
+
+.menu_name:hover :first-child{                  /*при наведении на элементы списка*/
+    color: #4A8AF4;
+}
+
+.menu_name:last-child{                          /*для последнего элемента списка*/
+    position: absolute;
+    right: 70px;
+    float: right;
+    font-family: Georgia, serif;
+    font-size: 18px;
+}
+
+/*Работа с логотипом страницы*/
+.logo-kbt {
+    width: 8%;
+    position: absolute;
+    margin-left: -650px;
+    margin-top: 4px;
+}
+/*Конец работы с логотипом страницы*/
+/*Конец работы с шапкой страницы*/
+
+
+/*Работа с центральной частью страницы*/
+.main {
+    flex: 1.1 auto;
+    width: 70%;
+    background-color: #D7D3D6;
+    position: relative;
+    left: 15%;
+    margin-bottom: 40px;
+    /* border: 2px solid #333; */
+}
+
+.about-us {
+    text-align: center;
+    margin-top: 90px;
+}
+
+.my-git {
+    color: #333;
+}
+
+.my-git:hover {
+    color: #4A8AF4;
+}
+
+/*Работа с страницей материалов*/
+.name_stat {
+    text-align: center;
+    color: #333;
+    font-family: Georgia;
+}
+
+.alert-alert-info {
+    color: #333;
+    font-size: 16px;
+    font-family: Georgia;
+    border: 2px solid #333;
+    padding: 10px 0px 10px 10px;
+}
+
+.btn-btn-warning {
+    color: #D7D3D6;
+    background-color:#333;
+    border-radius: 5%;
+    font-size: large;
+}
+
+.btn-btn-warning:hover {
+    color: #333;
+    background-color: #D7D3D6;
+}
+
+pre {
+    color: #333;
+    font-size: 16px;
+    font-family: Georgia;
+}
+
+.btn-change {
+    color: #D7D3D6;
+    background-color: #333;
+}
+
+.btn-change:hover{
+    color: #333;
+    background-color: #D7D3D6;
+}
+
+.btn-change:not(:last-of-type) {      /*отступы между элементами списка(кроме последнего)*/
+    margin-right: 35px;
+}
+/*Конец работы с странице материалов*/
+
+
+/*Начало работы с страницей добавления материалов*/
+.name_text {
+    text-align: center;
+    font-family: Georgia;
+    color: #333;
+    margin-top: 20px;
+}
+
+.form-change-material {
+    width: 200px;
+    height: 24px;
+    margin-bottom: 3px;
+    background-color: #fff;
+    border: 1px solid #333;
+    font-size: 15px;
+    font-family: Tahoma;
+    margin-left: 330px;
+    margin-top: 20px;
+}
+
+.form-area-cratko {
+    width: 500px;
+    height: 50px;
+    margin-bottom: 3px;
+    background-color: #fff;
+    border: 1px solid #333;
+    font-size: 15px;
+    font-family: Tahoma;
+    resize: unset;
+    margin-top: 3px;
+}
+
+.form-area-main-text {
+    width: 500px;
+    height: 280px;
+    margin-bottom: 3px;
+    background-color: #fff;
+    border: 1px solid #333;
+    font-size: 15px;
+    font-family: Tahoma;
+    resize: unset;
+}
+
+#success-text {
+    font-size: 14px;
+    font-family: Georgia;
+}
+/*Конец работы с страницей добавления материалов*/
+
+
+/*Начало работы с редактированием страницы (update)*/
+.name-text-update {
+    text-align: center;
+    font-family: Georgia;
+    color: #333;
+    margin-top: 20px;
+}
+
+.form-update-material {
+    width: 200px;
+    height: 24px;
+    margin-bottom: 3px;
+    background-color: #fff;
+    border: 1px solid #333;
+    font-size: 15px;
+    font-family: Tahoma;
+    margin-left: 330px;
+    margin-top: 20px;
+}
+/*Конец работы с редактированием страницы (update)*/
+
+
+/*Стили к странице Авторизации*/
+.main_avtoriza {
+    width: 30%;
+    position: relative;
+    left: 35%;
+    background-color: #D7D3D6;
+}
+
+.name_avtoriza {
+    text-align: center;
+    color: #333;
+    background-color: #D7D3D6;
+    font-family: Tahoma;
+}
+
+.pole_avtoriza {
+    text-align: center;
+    background-color: #D7D3D6;
+    margin-bottom: 80%;
+    margin-top: 15px;
+    border: 2px solid #333;
+}
+
+.form-control {
+    width: 200px;
+    height: 24px;
+    margin-bottom: 3px;
+    background-color: #fff;
+    border: 1px solid #333;
+    font-size: 15px;
+    font-family: Tahoma;
+}
+
+.btn-btn-success {
+    width: 100px;
+    height: 24px;
+    margin-bottom: 30px;
+    border-radius: 5%;
+    background-color: #fff;
+    border: 1px solid #333;
+    font-size: 15px;
+    font-family: Tahoma;
+    margin-top: 15px;
+}
+
+.btn-btn-success:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.link_reg {
+    color: rgba(221, 0, 0, 0.788);
+}
+
+.link_reg:hover {
+    color: #000000;
+}
+/*Конец блока стилей к странице авторизация*/
+/*Конец работы с центральной частью страницы*/
+
+
+/*Работа с футером страницы*/
+.footer {
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+    color: #fafafa;
+    line-height: 50px;
+    border-top: 1px solid silver;
+    text-align: center;
+}
+
+#wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu_footer {
+    display: inline;
+    text-align: center;
+    background: #333;
+    border-radius: 10%;
+}
+
+.main_menu_footer li:not(:last-of-type) {      /*отступы между элементами списка(кроме последнего)*/
+    margin-right: 25px;
+}
+
+.menu_footer:first-child{                         /*для первого элемента списка*/
+    position: absolute;
+    left: 100px;
+    float:left;
+    font-size: 18px;
+    font-family: Georgia, serif;
+}
+
+.menu_footer:last-of-type{                          /*для последнего элемента списка*/
+    position: absolute;
+    right: 70px;
+    float: right;
+    font-size: 14px;
+}
+
+.menu_footer:hover :first-child, .menu_footer:hover :last-child{               /*при наведении на элементы списка*/
+    color: #4A8AF4;
+}
+
+.logo-vk {
+    width: 2%;
+    position: absolute;
+    margin-left: 400px;
+    margin-top: 15px;
+}
+
+/*Конец работы с футером сайта*/
+
+.flash {padding: 10px;}
+
+.flash-success {
+    border: 1px solid #21DB56;
+    background: #AEFFC5;
+}
+
+.flash-error {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}
+
+
+
+
+
+
+
+/* __________________________________________________- */
+
+
+img {max-width: 600px; height: auto;}
+
+img.img-article-left {
+	max-width: 300px;
+	height: auto;
+	float: left;
+	padding: 0 10px 10px 0;
+}
+
+img.img-article-left.thumb {
+	max-width: 150px;
+	height: auto;
+}
+
+.item-button {
+    display: flex;
+    justify-content: end;
+}
+
+.button-link {
+    padding: 10px 20px;
+	background: #333671;
+	color: #fff;
+    margin-top: 10px;
+
+}
+
+.item {
+    margin-bottom: 15px;
+}
+
+.item:last-child {
+    margin-bottom: 0;
+}
+
+.article-panel {
+    background: #eee;
+    padding: 5px 10px 5px 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: #555;
+    margin-bottom: 10px;
+}
+div.article-panel p.first {
+    margin: 0;
+    float: left;
+}
+div.article-panel p.last {
+    margin: 0;
+    float: right;
+}
+
+ul.list-articles {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ul.list-articles li {
+	border-bottom: 1px solid #ccc;
+}
+
+.table-page {
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+.table-page tr {height: 100%;}
+
+.clear {clear: both;}
+
+
+
+ul.mainmenu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 60px;
+	color: #fdc073;
+	font-size: 20px;
+	overflow: hidden;
+}
+ul.mainmenu li {
+	float: left;
+	margin: 18px 40px 0 30px;
+}
+ul.mainmenu li.logo {margin: 0;}
+ul.mainmenu li.last {float: right;}
+
+ul.mainmenu li a {
+	color: #fdc073;
+	text-decoration: none;
+}
+ul.mainmenu li a:hover {
+	color: #FDA83D;
+}
+
+.panelitems {
+	text-align: center;
+}
+
+ul.langitem {
+	list-style: none;
+	display: inline-block;
+	margin: 30px;
+	padding: 0;
+	max-width: 300px
+}
+ul.langitem li {
+	margin: 10px 0 0 0;
+	width: 100%;
+}
+ul.langitem li.image {
+	margin: 0;
+	text-align: center;
+	width: 100%;
+	height: 250px;
+	overflow: hidden;
+}
+ul.langitem li.descr {
+	color: #777;
+	height: 170px;
+	overflow: hidden;
+}
+ul.langitem li a {
+	color: #fdc073;
+	text-decoration: none;
+	font-size: 20px;
+}
+ul.langitem li a:hover {
+	color: #FDA83D;
+}
+div.button {
+	background: #3F4137;
+	max-width: 200px;
+	margin: 0 auto;
+	padding: 5px 20px 5px 20px;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+.table-content {
+	width: 100%;
+	min-height: 100%;
+	height: 100%;
+}
+
+.left-chapters {
+	margin: 0;
+	background: #eee;
+	border-right: 1px solid #ccc;
+	min-height: 100%;
+}
+.left-chapters ul {
+	width: 230px;
+	min-height: 100%;
+	margin: 0;
+	padding: 20px 10px 10px 20px;
+	list-style: none;
+	font-size: 20px;
+}
+.left-chapters ul li {
+	margin: 30px 0 0 0;
+	color: #999;
+}
+.left-chapters ul li.selected {color: #0059b2; }
+.left-chapters ul li a {
+	color: #444;
+	text-decoration: none;
+}
+.left-chapters ul li a:hover { color: #CC0000; }
+.left-chapters ul li.share {margin: 60px 0 0 0;}
+.left-chapters ul li.share p {margin: 30px 0 30px 0;}
+.left-chapters ul li.share a {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin: 0 20px 0 0;
+}
+.left-chapters ul li.share a.share-yt {
+	width: 100%;
+	height: 30px;
+	background: url('../images/share_yt.png') no-repeat 0 0
+}
+.left-chapters ul li.share a.share-yt:hover {
+	width: 100%;
+	height: 30px;
+	background: url('../images/share_yt.png') no-repeat 0 -30px
+}
+
+.content {
+	padding: 40px 20px 20px 40px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+ul.breadcrumbs {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 20px;
+	font-family: Sans-serif, Arial, Tahoma;
+}
+ul.breadcrumbs li {
+	display: inline-block;
+}
+ul.breadcrumbs li a {
+	color: #0059b2;
+	text-decoration: none;
+}
+ul.breadcrumbs li a:hover { color: #CC0000; }
+ul.breadcrumbs li:after{
+	padding: 0 10px 0 10px;
+	content: "\2192";
+}
+ul.breadcrumbs li.last:after {content: "";}
+
+ul.control {
+	margin: 0;
+	padding: 60px 0 0 0;
+	list-style: none;
+	font-family: Sans-serif, Arial, Tahoma;
+	font-size: 18px;
+	width: 100%;
+}
+ul.control li {	float: left; padding: 0 0 0 10px;}
+ul.control li.first:before {content: "\2190"; padding: 0 10px 0 0;}
+ul.control li.last {float: right; padding: 0 40px 0 0;}
+ul.control li.last:after {content: "\2192"; padding: 0 0 0 10px;}
+ul.control li a { color: #0059b2; text-decoration: none; }
+ul.control li a:hover { color: #CC0000; }
+
+ul.content-table {
+	margin: 0;
+	padding: 60px 0 0 30px;
+	list-style: none;
+	font-family: Sans-serif, Arial, Tahoma;
+	font-size: 28px;
+}
+ul.content-table li {
+	margin: 0 0 40px 0;
+}
+ul.content-table li a {
+	color: #BB5715;
+	text-decoration: none;
+}
+ul.content-table li a:hover {color: #F0711C;}
+
+.content-text {
+	margin: 60px 0 0 30px;
+	color: #000;
+	font-size: 20px;
+	font-family: Yandex Sans Display Light;
+}
+.content-text h1 {font-size: 32px;}
+
+ul.lang-list {
+	list-style: none;
+	margin: 0;
+	padding: 14px 0 0 0;
+	background: #3F4137;
+	width: 100%;
+	height: 50px;
+	border-top: 1px solid #959A82;
+	box-sizing: border-box;
+	font-size: 18px;
+	font-family: Sans-serif, Arial, Tahoma;
+}
+ul.lang-list li {
+	display: inline-block;
+	margin-left: 40px;
+}
+ul.lang-list li.selected {color: #fdc073; border-bottom: 1px solid #fdc073;}
+ul.lang-list li a {
+	color: #eee;
+	text-decoration: none;
+}
+ul.lang-list li a:hover {color: #fdc073;}
+
+.topic-subject .topic-line {
+	border-bottom: 1px solid #CC0000;
+	margin-top: -16px;
+}
+
+.topic-subject .topic-text {
+	display: inline-block;
+	font-size: 28px;
+	color: #777;
+	padding: 0 10px 0 10px;
+	margin-left: 30px;
+	background: #fff;
+	font-family: Sans-serif, Arial, Tahoma;
+}
+
+.list-topic {
+	margin: 40px 0 60px 0;
+	font-family: Sans-serif, Arial, Tahoma;
+}
+.list-topic p {
+	margin: 0;
+	font-size: 28px;
+}
+.list-topic ol {
+	columns: 2;
+	-webkit-columns: 2;
+	column-gap: 40px;
+}
+.list-topic ol li {
+	display: list-item;
+	margin: 10px 10px 0 0px;
+	padding: 0 0 0 10px;
+}
+.list-topic ol li a {
+	color: #0059b2;
+	text-decoration: none;
+}
+.list-topic ol li a:hover {color: #CC0000;}
+
+.highlight {
+	max-width: 350px;
+	padding: 0 10px 0 10px;
+	margin: 0;
+	overflow: auto;
+	overflow-y: hidden;
+	background: #f0f0f0;
+}
+.highlight p { margin: 0; }
+.highlight .block {
+	width: 100%;
+	margin: 0;
+}
+.highlight .block p { margin: 0; }
+
+.quote {
+	background: url('../images/blockquote.png') no-repeat 0 10px;
+	padding: 5px 5px 5px 70px;
+	font-family: Sans-serif, Arial, Tahoma;
+	font-style: italic;
+}
+
+
+.form-input {
+    width: 250pt;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.form-reg-input {
+    width: 150px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.form-label {
+    display: inline-block;
+    min-width: 150px;
+    vertical-align: top;
+}
+
+.form-reg-label {
+    display: inline-block;
+    min-width: 110px;
+    vertical-align: top;
+}
+
+.form-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-width: 200px;
+    font-size: 16px;
+}
+
+.list-pages {
+	text-align: center;
+	margin: 0 0 20px 0;
+}
+.list-pages ul {
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+.list-pages ul li {
+	display: inline-block;
+	margin: 0 20px 0 0;
+}
+.list-pages a {
+	color: #000;
+	font-size: 24px;
+	text-decoration: none;
+}
+.list-pages .page-num, .page-num-selected {
+	display: inline-block;
+	width: 60px;
+	height: 44px;
+	padding: 16px 0 0 0;
+	border: 1px solid #d0d0d0;
+	border-radius: 30px;
+}
+.list-pages .page-num:hover {
+	box-shadow: 3px 3px 1px #d0d0d0; 
+}
+.list-pages .page-num-selected {
+	border: none;
+	color: #000;
+	font-size: 20px;
+}
+.list-pages .page-num-selected:hover {
+	box-shadow: none; 
+}
+
+/*  */
+
+.hr-comments {
+    border: none; /* Убираем границу */
+    background-color: black; /* Цвет линии */
+    color: black; /* Цвет линии для IE6-7 */
+    height: 4px; /* Толщина линии */
+   }
+
+
+.body-item {
+    display: flex;
+}
+
+.item-title {
+    margin-bottom: 10px;
+}

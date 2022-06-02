@@ -1,0 +1,22 @@
+{% extends 'blog_app/base.html' %}
+
+{% block body %}
+<div id="wrapper">
+    <div class="aside"></div>
+    <div class="main_avtoriza">
+        <div class="pole_avtoriza" id="auth-block"><br>
+            <h1>{{ title }}</h1>
+            <form method="post">
+                {% csrf_token %}
+                {% for f in form %}
+                    <p><label class="form-reg-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+                    {% if f.errors %}
+                        <div class="flash-error">{{ f.errors }}</div>
+                    {% endif %}
+                {% endfor %}
+                <button class="form-button" type="submit">Регистрация</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
