@@ -1,21 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 * {
-    margin: 0;
-    padding: 0;
+	padding: 0;
+	margin: 0;
+	border: 0;
 }
 
-html, body {height: 100%;}
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
 
+:focus,
+:active {
+	outline: none;
+}
+
+a:focus,
+a:active {
+	outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
 body {
-    background-color: #D7D3D6;
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 
-a {
-    text-decoration: none;
-    color: #fff;
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+	line-height: 20px;
 }
 
 /*Работа с шапкой страницы*/
-.header {
+/* .header {
     width: 100%;
     height: 50px;
     background-color: #333;
@@ -24,7 +101,7 @@ a {
     border-bottom: 2px solid silver;
     margin-bottom: 40px;
     text-align: center;
-}
+} */
 
 .menu_name {
     display: inline;
@@ -61,15 +138,15 @@ a {
 
 
 /*Работа с центральной частью страницы*/
-.main {
+/* .main {
     flex: 1.1 auto;
     width: 70%;
     background-color: #D7D3D6;
     position: relative;
     left: 15%;
     margin-bottom: 40px;
-    /* border: 2px solid #333; */
-}
+    border: 2px solid #333;
+} */
 
 .about-us {
     text-align: center;
@@ -267,7 +344,7 @@ pre {
 
 
 /*Работа с футером страницы*/
-.footer {
+/* .footer {
     width: 100%;
     height: 50px;
     background-color: #333;
@@ -275,14 +352,154 @@ pre {
     line-height: 50px;
     border-top: 1px solid silver;
     text-align: center;
-}
+} */
 
-#wrapper {
+/* #wrapper {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+} */
+
+/* =================================================================================================================== */
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow: hidden;
+}
+.page{
+    flex: 1 1 auto;
+    padding: 50px 0;
+}
+.container{
+    max-width: 1130px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+}
+/* =================================================================================================================== */
+/* #77608d */
+.header{
+    background-color: #2f1449;
+    padding: 10px 0;
+}
+.header-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-image img{
+    width: 150px;
+    height: 70px;
+    object-fit: cover;
+}
+.header-list{
+    display: flex;
+}
+.header-list li{
+    margin: 0px 20px 0px 0px;
+    position: relative;
+}
+.list-item-header::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -50%;
+    width: 100%;
+    height: 2px;
+    background-color: #794f;
+    transition: all .4s ease;
+    transform: scale(0);
+}
+.list-item-header:hover::before{
+    transform: scale(1.0);
+}
+.header-list li a:hover{
+    color: #794f;
+}
+.header-list li:last-child{
+    margin: 0px 0px 0px 0px;
+}
+.header-list li a {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    transition: all .3s ease;
+}
+.header-actions{
+    display: flex;
+    align-items: center;
+}
+.actions-item{
+    margin: 0 20px 0 0;
+}
+.actions-item:last-child{
+    margin: 0 0px 0 0;
+}
+.actions-item a{
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
 }
 
+/* =================================================================================================================== */
+
+.footer{
+    background-color: #2f1449;
+    padding: 20px 0;
+}
+.footer-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-text{
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+}
+.footer-list {
+    display: flex;
+}
+.footer-list li{
+    margin: 0px 20px 0px 0px;
+}
+.footer-list li a:hover{
+    color: #794f;
+}
+.footer-list li:last-child{
+    margin: 0px 0px 0px 0px;
+}
+.list-item-footer a{
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    transition: all .3s ease;
+}
+.footer-vk{
+    display: flex;
+    align-items: center; 
+}
+.footer-vk img{
+    display: block;
+    margin: 0px 20px 0px 0px;
+}
+.footer-text-vk{
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+}
+/* =================================================================================================================== */
+
+.post-text {
+    font-size: 18px;
+    line-height: 20px;
+}
+
+/* =================================================================================================================== */
 .menu_footer {
     display: inline;
     text-align: center;
@@ -687,9 +904,45 @@ ul.lang-list li a:hover {color: #fdc073;}
 
 
 .form-input {
-    width: 250pt;
+    width: 250px;
     font-size: 16px;
     margin-bottom: 10px;
+    border: 1px solid #000;
+    
+}
+.post-wrap{
+    display: flex;
+    align-items: center;
+    margin: 0 0 20px 0;
+}
+
+.form-input-comm{
+    width: 300px;
+	height: 50px;
+	background: #fff;
+	border: 1px solid #333;
+	border-radius: 5px;
+	padding: 0px 0px 0px 15px;
+	font-size: 20px;
+	transition: border .2s linear;
+}
+.form-input-comm:focus{
+    border: 1px solid #4cb1ca;
+}
+
+.form-textarea{
+    width: 400px;
+	height: 200px;
+	background-color: #ffffff;
+	resize: unset;
+	font-size: 20px;
+	padding: 0px 15px 0px 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.form-textarea-big{
+    width: 700px;
 }
 
 .form-reg-input {
@@ -700,6 +953,7 @@ ul.lang-list li a:hover {color: #fdc073;}
 
 .form-label {
     display: inline-block;
+    font-size: 18px;
     min-width: 150px;
     vertical-align: top;
 }
@@ -726,7 +980,7 @@ ul.lang-list li a:hover {color: #fdc073;}
 	padding: 0;
 	list-style: none;
 }
-.list-pages ul li {
+.list-pages li ul  {
 	display: inline-block;
 	margin: 0 20px 0 0;
 }
@@ -735,7 +989,7 @@ ul.lang-list li a:hover {color: #fdc073;}
 	font-size: 24px;
 	text-decoration: none;
 }
-.list-pages .page-num, .page-num-selected {
+.list-pages .agep-num, .page-num-selected {
 	display: inline-block;
 	width: 60px;
 	height: 44px;

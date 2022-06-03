@@ -10,34 +10,57 @@
         <title>{{title}}</title>    
     </head>
     <body>
-        <div class="header">
-            <img src="https://cbcol.mskobr.ru/attach_files/logo/лого.png" alt="logo" class="logo-kbt">
-            <ul class="main_menu_header">
-                <li class="menu_name"><a href="{% url 'main' %}">Главная</a></li>
-                <li class="menu_name"><a href="{% url 'about' %}">Про нас</a></li>
-
-                {% for c in cats %}
-                    <li class="menu_name"><a href="{% url 'category' c.slug %}">{{ c.name }}</a></li>
-                {% endfor %}
-
-                <li class="menu_name"><a href="{% url 'addpost' %}">Добавить статью</a></li>
-                {% if request.user.is_authenticated %}
-			    <li class="menu_name">{{ user.username }} | <a href="{% url 'logout' %}">Выйти</a></li>
-			    {% else %}
-			    <li class="menu_name"><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a></li>
-			    {% endif %}
-            </ul>
-        </div>
-        {% block body %}{% endblock %}
-        <div class="footer">
-            <ul class="main_menu_footer">
-                <li class="menu_footer">Все права защищены &copy; 2022</li>
-                <li class="menu_footer"><a href="/about">О нас</a></li>
-                <li class="menu_footer"><a href="https://cbcol.mskobr.ru/#/">Перейти на сайт колледжа</a></li>
-                <li class="menu_footer">8(977) 144-83-91</li>
-                <img src="https://ppz-ural.ru/attachments/Image/prilozheniya-vkontakte.png?1533807009013" alt="Vk" class="logo-vk">
-                <li class="menu_footer"><a href="https://vk.com/yamaher_x">Вконтакте</a></li>
-            </ul>
+        <div class="wrapper">
+            <header class="header">
+                <div class="container">
+                    <div class="header-row">
+                        <a href="/" class="header-image">
+                            <img src="../../static/blog_app/img/logo-kbt.png" alt="logo">
+                        </a>
+                        <nav class="header-menu">
+                            <ul class="header-list">
+                                <li class="list-item-header"><a class="item-link" href="{% url 'main' %}">Главная</a></li>
+                                <li class="list-item-header"><a class="item-link" href="{% url 'about' %}">Про нас</a></li>
+                                {% for c in cats %}
+                                <li class="list-item-header"><a class="item-link" href="{% url 'category' c.slug %}">{{ c.name }}</a></li>
+                                {% endfor %}
+                                <li class="list-item-header"><a class="item-link" href="{% url 'addpost' %}">Добавить статью</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header-actions">
+                            {% if request.user.is_authenticated %}
+                            <div class="actions-item"><a href="#" class="actions-item">{{ user.username }}</a><a href="{% url 'logout' %}">Выйти</a></div>
+                            {% else %}
+                            <div class="actions-item"><a href="{% url 'register' %}">Регистрация</a></div>
+                            <div class="actions-item"><a href="{% url 'login' %}">Войти</a></div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="page">
+                <div class="container">
+                    {% block body %}{% endblock %}
+                </div>
+            </main>
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-row">
+                        <div class="footer-text">Все права защищены &copy; 2022</div>
+                        <nav class="footer-menu">
+                            <ul class="footer-list">
+                                <li class="list-item-footer"><a class="item-link-footer" href="/about">О нас</a></li>
+                                <li class="list-item-footer"><a class="item-link-footer" href="https://cbcol.mskobr.ru/#/">Перейти на сайт колледжа</a></li>
+                                <li class="list-item-footer"><a class="item-link-footer" href="tel:89771448391">8(977) 144-83-91</a></li>
+                            </ul>
+                        </nav>
+                        <a href="https://vk.com/yamaher_x" class="footer-vk">
+                            <img src="../../static/blog_app/img/icons-vk.svg" alt="Vk">
+                            <div class="footer-text-vk">Вконтакте</div>
+                        </a>
+                    </div>
+                </div>
+            </footer>
         </div>
     </body>
 </html>

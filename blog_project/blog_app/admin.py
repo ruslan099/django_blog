@@ -16,3 +16,4 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name')
     search_fields = ('id', )
     prepopulated_fields = {'slug': ('name',)}
+    

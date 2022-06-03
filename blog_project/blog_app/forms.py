@@ -14,9 +14,9 @@ class AddPostForm(forms.ModelForm):
         model = Post
         fields = ['title', 'slug', 'content', 'photo','is_published', 'cat']
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-input'}),
-            'slug': forms.TextInput(attrs={'class': 'form-input'}),
-            'content': forms.Textarea(attrs={'cols': 60, 'rows': 10}),
+            'title': forms.TextInput(attrs={'class': 'form-input-comm'}),
+            'slug': forms.TextInput(attrs={'class': 'form-input-comm'}),
+            'content': forms.Textarea(attrs={'class': 'form-textarea form-textarea-big'}),
         }
     
     # Создание пользовательских валидаторов
@@ -28,9 +28,9 @@ class AddPostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
-    name = forms.CharField(label='Ваше имя', widget=forms.TextInput(attrs={'class': 'form-input'}))
-    email = forms.CharField(label='Почта', widget=forms.TextInput(attrs={'class': 'form-input'}))
-    body = forms.CharField(label='Комментарий', widget=forms.Textarea(attrs={'class': 'form-input'}))
+    name = forms.CharField(label='Ваше имя', widget=forms.TextInput(attrs={'class': 'form-input-comm'}))
+    email = forms.CharField(label='Почта', widget=forms.TextInput(attrs={'class': 'form-input-comm'}))
+    body = forms.CharField(label='Комментарий', widget=forms.Textarea(attrs={'class': 'form-textarea'}))
 
     class Meta:
         model = Comment

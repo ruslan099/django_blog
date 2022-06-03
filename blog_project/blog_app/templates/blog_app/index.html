@@ -7,7 +7,6 @@
 
 {% block body %}
 <div id="wrapper">
-    <div class="aside"></div>
     <div class="main">
         <h1>Добро пожаловать, {{ user.username|default:'Гость' }}!</h1><br>
 
@@ -27,7 +26,7 @@
                         {% endif %}
                         {% autoescape on %}
                         <div class="item-text">
-                        {{p.content|linebreaks|truncatewords:50}}
+                        <p class="post-text">{{p.content|truncatewords:50}}</p>
                         </div>
                         {% endautoescape %}
                     </div>

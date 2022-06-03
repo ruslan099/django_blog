@@ -16,7 +16,7 @@
             <p><img class="img-article-left" src="{{ post.photo.url }}"></p>
             {% endif %}
 
-            {{post.content|linebreaks}}
+            <p class="post-text">{{post.content|linebreaksbr}}</p>
 
             <br><hr class="hr-comments">
             {% with comments.count as total_comments %}
@@ -45,7 +45,7 @@
                     <form method="post">
                     {% csrf_token %}
                     {% for f in comment_form %}
-                        <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+                        <div class="post-wrap"><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</div>
                         {% if f.errors %}
                             <div class="flash-error">{{ f.errors }}</div>
                         {% endif %}
