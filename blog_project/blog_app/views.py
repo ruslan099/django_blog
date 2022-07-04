@@ -43,6 +43,7 @@ class PostCategory(DataMixin, ListView):
 def show_post(request, post_slug):
     cats = Category.objects.all()
     post = get_object_or_404(Post, slug=post_slug)
+    
     comments = post.comments.filter(active=True)
     new_comment = None
 
