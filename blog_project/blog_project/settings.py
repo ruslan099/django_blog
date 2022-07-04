@@ -32,12 +32,12 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'blog_project.urls'
@@ -119,3 +119,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# SECURE_BROWSER_XSS_FITER = True
+SECURE_SSL_REDIRECT = False
+
+# X_FRAME_OPTIONS = 'DENY'
+
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# SECURE_REFERRER_POLICY = 'same-origin'
