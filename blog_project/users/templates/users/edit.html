@@ -1,0 +1,36 @@
+{% extends 'blog_app/base.html' %}
+
+{% block body %}
+    <h1>Редактирование личной информации</h1>
+    <p>Вы можете изменить свои данные с помощью формы снизу: </p>
+
+    <div class="media">
+        <img class="img-profile thumb" src="{{ user.profile.photo.url }}">
+        <div class="media-body">
+            <h2 class="account-heading">{{ user.username }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+          </div>
+    </div>
+    <hr><hr>
+
+    <form action="." method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% for f in user_form %}
+            <div class="post-wrap"><p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</p></div>
+        {% if f.errors %}
+            <div class="flash-error">{{ f.errors }}</div>
+        {% endif %}
+        {% endfor %}
+
+
+        {% for f in profile_form %}
+            <div class="post-wrap"><p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</p></div>
+        {% if f.errors %}
+            <div class="flash-error">{{ f.errors }}</div>
+        {% endif %}
+        {% endfor %}
+
+    <p><input type="submit" class="form-button" value="Сохранить"></p>
+    </form>
+{% endblock %}

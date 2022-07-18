@@ -4,6 +4,8 @@ from django.views.generic import ListView, CreateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout, login
+from django.db.models import Q
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 from .models import *
 from .forms import *
@@ -14,6 +16,7 @@ class PostIndex(DataMixin, ListView):
     model = Post
     template_name = 'blog_app/index.html'
     context_object_name = 'posts'
+    paginate_by = 3
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -22,6 +25,23 @@ class PostIndex(DataMixin, ListView):
 
     def get_queryset(self):
         return Post.objects.filter(is_published=True).order_by('-time_create')
+
+class SearchResultsView(DataMixin, ListView):
+    model = Post
+    template_name = 'blog_app/search_list.html'
+ 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['query'] = self.request.GET.get('q')
+        c_def = self.get_user_context(title='Поиск')
+        return context|c_def
+
+    def get_queryset(self): # новый
+        query = self.request.GET.get('q')
+        object_list = Post.objects.filter(
+            Q(title__icontains=query) | Q(content__icontains=query)
+        )
+        return object_list
         
 
 class PostCategory(DataMixin, ListView):
@@ -39,7 +59,7 @@ class PostCategory(DataMixin, ListView):
         c_def = self.get_user_context(title='Категория - '  + str(context['posts'][0].cat))
         return context|c_def
 
-
+       
 def show_post(request, post_slug):
     cats = Category.objects.all()
     post = get_object_or_404(Post, slug=post_slug)
@@ -55,6 +75,7 @@ def show_post(request, post_slug):
             new_comment.save()
     else:
         comment_form = CommentForm()
+
 
     context = {
         'cats': cats,
@@ -78,23 +99,6 @@ class AddPost(LoginRequiredMixin,DataMixin, CreateView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Добавление записи')
         return context|c_def
-
-
-class RegisterUser(DataMixin, CreateView):
-    form_class = RegisterUserForm
-    template_name = 'blog_app/register.html'
-    success_url = reverse_lazy('login')
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Регистрация')
-        return context|c_def
-
-    # Метод вызывается при успешной проверке формы регистрации
-    def form_valid(self, form):
-        user = form.save()
-        login(self.request, user)
-        return redirect('main')
 
 
 class LoginUserView(DataMixin, LoginView):

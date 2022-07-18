@@ -29,7 +29,7 @@
                         </nav>
                         <div class="header-actions">
                             {% if request.user.is_authenticated %}
-                            <div class="actions-item"><a href="#" class="actions-item">{{ user.username }}</a><a href="{% url 'logout' %}">Выйти</a></div>
+                            <div class="actions-item"><a href="{% url 'edit' %}" class="actions-item">{{ user.username }}</a><a href="{% url 'logout' %}">Выйти</a></div>
                             {% else %}
                             <div class="actions-item"><a href="{% url 'register' %}">Регистрация</a></div>
                             <div class="actions-item"><a href="{% url 'login' %}">Войти</a></div>
@@ -40,6 +40,16 @@
             </header>
             <main class="page">
                 <div class="container">
+                    {% if messages %}
+                        <ul class="messages">
+                        {% for message in messages %}
+                            <li class="flash flash-{{message.tags}}">
+                            {{ message|safe }}
+                            <a href="#" class="close">x</a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
                     {% block body %}{% endblock %}
                 </div>
             </main>
