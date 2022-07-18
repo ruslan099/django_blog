@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 
 from .models import *
-
+ 
 class AddPostForm(forms.ModelForm):
     error_css_class = "flash-error"
     def __init__(self, *args, **kwargs):
